@@ -1,0 +1,205 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #303030;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    position: relative;
+    width: 400px;
+    height: 90vh;
+    overflow: hidden;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.container::before{
+    content: " ";
+    position: absolute;
+     width: 100%;
+    height: 100%;
+    top: -50%;
+    left: -50%;
+    background-image: linear-gradient(36deg, transparent, aqua);
+    animation: rotate 6s infinite linear;
+    transform-origin: bottom right;
+    border-radius: 50px / 160px;
+    /* z-index: 1; */
+}
+.container::after{
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -50%;
+    left: -50%;
+    background-image: linear-gradient(36deg, transparent, aqua);
+    animation: rotate 6s infinite linear;
+    transform-origin: bottom right;
+    animation-delay: 3s;
+    border-radius: 50px / 160px;
+    /* z-index: 1; */
+}
+
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.container .listContainer{
+    background-color: #525252;
+    height: 100%;
+    width: 100%;
+    /* inset: 2px; */
+    z-index: 10;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 10px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: 3px;
+    color: white;
+}
+
+.container .listContainer::-webkit-scrollbar{
+    width: 5px;
+
+}
+.container .listContainer::-webkit-scrollbar-track{
+    background-color: #848484;
+}
+.container .listContainer::-webkit-scrollbar-thumb{
+    background-color: aqua;
+    border-radius: 259px / 113px;
+}
+
+
+.listDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin: 15px auto;
+    text-align: start;
+    position: relative;
+    width: 80%;
+    color: white;
+    align-items: center;
+}
+
+.listDiv input{
+    outline: none;
+    width: 100%;
+    /* margin: 5px auto; */
+    background: transparent;
+    border: none;
+    padding: 20px 10px 10px;
+    position: relative;
+    z-index: 30;
+    font-size: 15px;
+    color: #202020;
+}
+
+.listDiv i{
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    z-index: 2;
+    background-color: aqua;
+    transition: 500ms;
+    border-radius: 10px;
+}
+
+.listDiv input:focus ~ i,
+.listDiv input:valid ~ i{
+    width: 100%;
+    height: 45px;
+    padding: 20px 10px 10px;
+}
+
+
+.listDiv span{
+    position: absolute;
+    z-index: 20;
+    bottom: 5px;
+    left: 0px;
+    font-size: 20px;
+    transition: 500ms;
+    transform: translateX(10px);
+}
+
+.listDiv input:focus ~ span,
+.listDiv input:valid ~ span{
+    transform: translateX(5px) translateY(-45px);
+    font-size: 15px;
+    color: aqua;
+}
+
+
+.submitBtn{
+    padding: 12px 20px;
+    background-color: aqua;
+    color: rgb(26, 25, 25);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    border-radius: 120px / 160px;
+    transition: 0.2s;
+}
+.submitBtn:hover{
+    filter: drop-shadow( 1px 1px 2px aqua);
+}
+.clearBtn{
+    padding: 12px 20px;
+    background-color: aqua;
+    color: rgb(26, 25, 25);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    border-radius: 120px / 160px;
+    transition: 0.2s;
+    position: relative;
+    bottom: 10px;
+
+}
+.clearBtn:hover{
+    filter: drop-shadow( 1px 1px 2px aqua);
+}
+
+.list{
+    display: flex;
+    list-style-type: none;
+    padding: 20px 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+    transition: all 1s;
+}
+
+.list li{
+    flex-grow: 1;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: aqua;
+    color: #202020;
+    transition: all 1s;
+}
